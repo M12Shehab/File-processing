@@ -1,3 +1,10 @@
+// 
+//
+//  Lab session 10
+//
+//  Created by Mohammed Shehab on 3/29/20.
+//  Copyright © 2020 Mohammed Shehab. All rights reserved.
+//
 #include "AccountsManager.h"
 #include <fstream>
 #include <iostream>
