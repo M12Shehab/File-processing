@@ -15,6 +15,7 @@ public:
 	//-----
 	void add_account();
 	void remove_account();
+	void change_password();
 	void display_all_accounts();
 	int get_number_of_accounts();
 	bool is_found(std::string);

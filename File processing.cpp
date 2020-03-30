@@ -18,7 +18,8 @@ int main()
         cout << "** Main menu **\n";
         cout << "1- Create new account\n";
         cout << "2- Delete existing account\n";
-        cout << "3- Display all accounts.\n";
+        cout << "3- Change password.\n";
+        cout << "4- Display all accounts.\n";
         cout << "Enter your task id (1 to 3) to exit enter 0 or negative: ";
         cin >> menu_select;
 
@@ -26,7 +27,8 @@ int main()
         {
         case 1:manager.add_account(); break;
         case 2:manager.remove_account(); break;
-        case 3:manager.display_all_accounts(); break;
+        case 3:manager.change_password(); break;
+        case 4:manager.display_all_accounts(); break;
         default:cout << "- Wronge task id, please enter (1,2 or 3).\n";
             break;
         }

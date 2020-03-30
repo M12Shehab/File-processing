@@ -11,7 +11,7 @@ using namespace std;
 Cipher::Cipher()
 {
 	text_cipher = text_orignal = "";
-	shifts = 1;
+	shifts = 5;
 }
 
 Cipher::~Cipher()

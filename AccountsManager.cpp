@@ -81,6 +81,7 @@ void AccountsManger::add_account()
 {
 	// We need two attribtus (account id and its password)
 	string account_id, password;
+	cout << "\t** Create account **\n";
 	// Enter account id
 	cout << "Enter account Id: ";
 	cin >> account_id;
@@ -129,6 +130,7 @@ void AccountsManger::remove_account()
 {
 	string account_id, password;
 	// Enter account id
+	cout << "\t** Delete account **\n";
 	cout << "Enter account Id: ";
 	cin >> account_id;
 	// Check if that id is uniqe or not.
@@ -160,6 +162,67 @@ void AccountsManger::remove_account()
 				else
 				{
 					cout << "- Error while delete file " << file_name << ".\n";
+				}
+			}
+			else {
+				cout << "- Wrong password.\n";
+			}
+			break;
+		}
+	}
+}
+
+void AccountsManger::change_password()
+{
+	string account_id, password;
+	cout << "\t** Change account password **\n";
+	// Enter account id
+	cout << "Enter account Id: ";
+	cin >> account_id;
+	// Check if that id is uniqe or not.
+	account_id += ".txt";
+	if (!this->is_found(account_id))
+	{
+		cout << "- Sorry an error!! (Try again..).\n";
+		return;
+	}
+
+	for (int pos = 0; pos < accounts.size(); pos++)
+	{
+		if (accounts[pos]->get_account_id() == account_id)
+		{
+			cout << "Please enter password of account ( " << account_id << " ): ";
+			cin >> password;
+			if (password == accounts[pos]->get_password())
+			{
+				cout << "+ User id and password are valid.\n";
+				do
+				{
+					cout << "Enter new password: ";
+					cin >> password;
+				} while (password.size() <= 0);
+
+				string re_password;
+				cout << "Re-enter new password: ";
+				cin >> re_password;
+				if (password == re_password)
+				{
+					Cipher c = Cipher();
+					c.set_text_orignal(password);
+					c.caesar_cipher();
+					// create new file holds account id as name
+					ofstream myfile(account_id);
+					// Write password inside it.
+					myfile << c.get_text_cipher();
+					// Close that file.
+					myfile.close();
+					accounts[pos]->set_password(c.get_text_cipher());
+		
+					cout << "+ User id " << account_id << " is changed.\n";
+				}
+				else
+				{
+					cout << "- Sorry the password does not matched.\n";
 				}
 			}
 			else {
