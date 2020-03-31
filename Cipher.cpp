@@ -11,7 +11,7 @@ using namespace std;
 Cipher::Cipher()
 {
 	text_cipher = text_orignal = "";
-	shifts = 5;
+	//shifts = 5;
 }
 
 Cipher::~Cipher()
@@ -47,7 +47,9 @@ void Cipher::caesar_cipher()
 		int len = this->text_orignal.size();
 		for (int pos = 0; pos < len; ++pos)
 		{
-			this->text_cipher += this->text_orignal[(pos + shifts) % len];
+			int c = int(this->text_orignal[pos]);
+			c = c + shifts;
+			this->text_cipher += char(c);
 		}
 	}
 	else if (this->text_cipher.size() > 0)
@@ -56,7 +58,10 @@ void Cipher::caesar_cipher()
 		int len = this->text_cipher.size();
 		for (int pos = 0; pos < len; ++pos)
 		{
-			this->text_orignal += this->text_cipher[(len + pos - shifts) % len];
+			int c = int(this->text_cipher[pos]);
+			c = (c - shifts);
+			char l = char(c);
+			this->text_orignal += char(c);
 		}
 	}
 	else
@@ -64,3 +69,4 @@ void Cipher::caesar_cipher()
 		cout << "- caesar cipher error, unknow process.\n";
 	}
 }
+

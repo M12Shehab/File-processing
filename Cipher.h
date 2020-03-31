@@ -3,7 +3,7 @@
 class Cipher {
 	std::string text_orignal;
 	std::string text_cipher;
-	int shifts;
+	const int shifts = 1;
 public:
 	Cipher();
 	~Cipher();

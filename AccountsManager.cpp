@@ -86,7 +86,7 @@ void AccountsManger::add_account()
 	cout << "Enter account Id: ";
 	cin >> account_id;
 	// Check if that id is uniqe or not.
-	if (this->is_found(account_id))
+	if (this->is_found(account_id+".txt"))
 	{
 		//cout << "- Sorry this user id is already used.\n";
 		cout << "- Sorry an error!! (Try again..).\n";
