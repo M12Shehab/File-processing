@@ -29,7 +29,7 @@ int main()
         case 2:manager.remove_account(); break;
         case 3:manager.change_password(); break;
         case 4:manager.display_all_accounts(); break;
-        default:cout << "- Wronge task id, please enter (1,2 or 3).\n";
+        default:cout << "- wrong task id, please enter (1,2 or 3).\n";
             break;
         }
 

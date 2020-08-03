@@ -7,7 +7,7 @@ class AccountsManger
 private:
 	int number_of_accounts;
 	std::vector<Account*> accounts;
-bool is_found(std::string);
+	bool is_found(std::string);
 public:
 	AccountsManger();
 	~AccountsManger();
